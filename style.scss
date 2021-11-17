@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Gtwalsheimprotrial';
+    src: url('https://uploads-ssl.webflow.com/5b32655069229148933e1636/5b3363c29fe4359cb2f868e6_GTWalsheimProTrial-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: auto;
+}
+@font-face {
+    font-family: 'Gtwalsheimprotrial';
+    src: url('https://uploads-ssl.webflow.com/5b32655069229148933e1636/5b33641ec698a7f268672e0c_GTWalsheimProTrial-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: auto;
+}
+@font-face {
+    font-family: 'Gtwalsheimprotrial';
+    src: url('https://uploads-ssl.webflow.com/5b32655069229148933e1636/5b33641e775e213d721de757_GTWalsheimProTrial-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: auto;
+}
+@font-face {
+    font-family: 'Gtwalsheimprotrial';
+    src: url('https://uploads-ssl.webflow.com/5b32655069229148933e1636/5b33641e1379b7932628d0c8_GTWalsheimProTrial-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: auto;
+}
+
+html, body {
+    background-color: #050505;
+    color: #FFF;
+    font-family: Gtwalsheimprotrial, sans-serif;
+}
+
+
+
+.me {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    .my-introduce {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        position: relative;
+
+        h4 {
+            z-index: 3;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 4.5em;
+            z-index: 3;
+
+            &:after {
+                content: "";
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                background-color: #5f99ff;
+                border-radius: 50%;
+            }
+        }
+
+        h2 {
+            position: absolute;
+            top: 87px;
+            z-index: 2;
+            color: #0f0f0f;
+            font-size: 7em;
+            line-height: 0.8em;
+            letter-spacing: -0.7px;
+            font-weight: bold;
+        }
+
+        .my-social {
+            margin-top: 2rem;
+            a {
+                color: #f2f2f2;
+                cursor: pointer;
+                svg {
+                    width: 2.5em;
+                    height: 2.5em;
+                }
+
+                + a {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    p {
+        font-weight: 100;
+        color: #ccc;
+        z-index: 3;
+    }
+
+    img {
+        width: 85%;
+        display: block;
+        margin: 0 auto;
+    }
+}
