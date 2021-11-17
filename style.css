@@ -97,7 +97,9 @@ html, body {
 
 .me .my-introduce .my-social a {
   color: #f2f2f2;
-  cursor: pointer;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .me .my-introduce .my-social a svg {
@@ -107,6 +109,12 @@ html, body {
 
 .me .my-introduce .my-social a + a {
   margin-left: 1rem;
+}
+
+.me .my-introduce .my-social a:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .me p {
