@@ -5,6 +5,13 @@
   --muted: #b6b8c7;
   --border: #1f2030;
   --accent: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 100%);
+  /* Must match the exact .hero-name-text character count (including spaces); Tranvinhhung = 12. */
+  --name-chars: 12;
+  --typing-duration: calc(var(--name-chars) * 0.2s);
+  --typing-start-delay: 0.9s;
+  --delay-tagline: calc(var(--typing-start-delay) + var(--typing-duration) + 0.1s);
+  --delay-bio: calc(var(--delay-tagline) + 0.3s);
+  --delay-social-base: calc(var(--delay-bio) + 0.7s);
 }
 
 * {
@@ -100,6 +107,10 @@ main {
   z-index: 2;
 }
 
+.hero-bio p {
+  margin: 0;
+}
+
 .hero-label {
   margin-top: 2rem;
   display: inline-flex;
@@ -134,7 +145,7 @@ main {
   vertical-align: bottom;
   width: 0;
   border-right: 2px solid #72c5ff;
-  animation: typing 2.2s steps(11, end) 0.9s forwards, blink 0.8s step-end infinite 0.9s;
+  animation: typing var(--typing-duration) steps(var(--name-chars), end) var(--typing-start-delay) forwards, blink 0.8s step-end infinite var(--typing-start-delay);
 }
 
 .hero-name-dot {
@@ -150,7 +161,7 @@ main {
   color: #d8dbf5;
   opacity: 0;
   transform: translateY(20px);
-  animation: slideUp 0.8s ease 2.9s forwards;
+  animation: slideUp 0.8s ease var(--delay-tagline) forwards;
 }
 
 .hero-bio {
@@ -161,9 +172,11 @@ main {
   border-left: 3px solid transparent;
   border-image: var(--accent) 1;
   padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
   opacity: 0;
   transform: translateY(20px);
-  animation: slideUp 0.8s ease 3.2s forwards;
+  animation: slideUp 0.8s ease var(--delay-bio) forwards;
 }
 
 .hero-social {
@@ -187,15 +200,11 @@ main {
 }
 
 .hero-social a:nth-child(1) {
-  animation-delay: 3.9s;
+  animation-delay: var(--delay-social-base);
 }
 
 .hero-social a:nth-child(2) {
-  animation-delay: 4.1s;
-}
-
-.hero-social a:nth-child(3) {
-  animation-delay: 4.3s;
+  animation-delay: calc(var(--delay-social-base) + 0.2s);
 }
 
 .hero-social a:hover {
@@ -424,7 +433,7 @@ main {
 
 @keyframes typing {
   from { width: 0; }
-  to { width: 11ch; }
+  to { width: calc(var(--name-chars) * 1ch); }
 }
 
 @keyframes blink {
